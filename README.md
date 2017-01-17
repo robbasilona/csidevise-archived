@@ -34,6 +34,7 @@ nvm install stable
 nvm use stable
 npm install -g cordova ionic
 cd csidevise/mobile
+npm install
 ionic serve
 ```
 
