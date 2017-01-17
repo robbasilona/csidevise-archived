@@ -31,6 +31,12 @@ $colors: (
   red:  #C0392B
 );
 
+$bg: #d5e1f6;
+
+.content {
+	background-color: $bg !important;
+}
+
 // $red: #C0392B;
 // $white:  #DEDEDE;
 // $grey: #808080;
