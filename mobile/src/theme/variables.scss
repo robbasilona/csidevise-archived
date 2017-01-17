@@ -28,13 +28,12 @@ $colors: (
   blue:  #2184C0,
   grey:  #808080,
   white:  #DEDEDE,
-  red:  #C0392B
+  red:  #C0392B,
+  backGrey: #d5e1f6
 );
 
-$bg: #d5e1f6;
-
 .content {
-	background-color: $bg !important;
+	background-color: color($colors, backGrey) !important;
 }
 
 // $red: #C0392B;
