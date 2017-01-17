@@ -1,6 +1,9 @@
 <ion-header>
   <ion-navbar color="red">
     <ion-title>Resource</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button>
+    </ion-buttons> -->
   </ion-navbar>
 </ion-header>
 
@@ -24,6 +27,7 @@
     </ion-item>
   </ion-list>
 
-  <h2>Your location is</h2>
-  <p>{{lat}}, {{lon}}</p>
+  <!-- <p>Your location is {{lat}}, {{lon}}</p> -->
+
+  <div #map id="map"></div>
 </ion-content>
