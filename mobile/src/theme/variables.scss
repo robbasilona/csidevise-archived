@@ -31,6 +31,21 @@ $colors: (
   Red:  #C0392B
 );
 
+$red: #C0392B;
+$white:  #DEDEDE;
+$grey: #808080;
+
+// TABS
+$tabs-background: $red;
+// TEST $tabs-ios-text-color: $white;
+// $tabs-ios-tab-text-color-active: $white;
+$tabs-tab-color-active: $white;
+$tabs-tab-color-inactive: $white;
+
+.redWhite {
+    color: #C0392B;
+    text-color: #DEDEDE
+};
 
 // App iOS Variables
 // --------------------------------------------------
