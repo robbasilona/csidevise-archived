@@ -1,0 +1,13 @@
+$assertive: #C0392B;
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss";
+.padding {
+	margin: 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+ion-view,.pane,.view {
+	background-color: #2184C0;
+}
+
