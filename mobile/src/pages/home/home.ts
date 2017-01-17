@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 
-import { NavController, Platform } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 import { Geolocation } from 'ionic-native';
 
@@ -18,15 +18,15 @@ export class HomePage {
   public water: Boolean;
   public goods: Boolean;
   public batteries: Boolean;
-  public lat: number;
-  public lon: number;
+  lat: number;
+  lon: number;
+  loc: string;
 
-  constructor(public navCtrl: NavController, public platform: Platform) {
+  constructor(public navCtrl: NavController) {
     this.biscuit = true;
     this.water = false;
     this.goods = true;
     this.batteries = false;
-    // this.loadMap();
   }
 
   ionViewDidLoad(){
