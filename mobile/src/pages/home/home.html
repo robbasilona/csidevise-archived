@@ -1,17 +1,29 @@
 <ion-header>
-  <ion-navbar color="Red">
+  <ion-navbar color="red">
     <ion-title>Resource</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-list>
+    <ion-item>
+      <ion-label>3 Packs of Biscuits</ion-label>
+      <ion-toggle [(ngModel)]="biscuit"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>1.5L Water</ion-label>
+      <ion-toggle [(ngModel)]="water"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>3 Easy-Open Canned Goods</ion-label>
+      <ion-toggle [(ngModel)]="goods"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Batteries</ion-label>
+      <ion-toggle [(ngModel)]="batteries"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <h2>Your location is</h2>
+  <p>{{lat}}, {{lon}}</p>
 </ion-content>
