@@ -29,6 +29,7 @@ bundle exec rails s
 
 ### Ionic Setup
 ```
+#no need to change working directory
 nvm install stable
 nvm use stable
 npm install -g cordova ionic
