@@ -31,21 +31,26 @@ $colors: (
   red:  #C0392B
 );
 
-$red: #C0392B;
-$white:  #DEDEDE;
-$grey: #808080;
+$bg: #d5e1f6;
 
-// TABS
-$tabs-background: $red;
-// TEST $tabs-ios-text-color: $white;
-// $tabs-ios-tab-text-color-active: $white;
-$tabs-tab-color-active: $white;
-$tabs-tab-color-inactive: $white;
+.content {
+	background-color: $bg !important;
+}
 
-.redWhite {
-    color: #C0392B;
-    text-color: #DEDEDE
-};
+// $red: #C0392B;
+// $white:  #DEDEDE;
+// $grey: #808080;
+//
+//
+// $tabs-background: $red;
+// $tabs-tab-color-active: $white;
+// $tabs-tab-color-inactive: $white;
+//
+// .redWhite {
+//     color: #C0392B;
+//     text-color: #DEDEDE
+// };
+
 
 // App iOS Variables
 // --------------------------------------------------
