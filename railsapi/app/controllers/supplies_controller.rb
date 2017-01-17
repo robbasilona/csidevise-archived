@@ -50,6 +50,6 @@ class SuppliesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supply_params
-      params.fetch(:supply, {})
+      params.fetch(:supply, {}).permit(:name, :category)
     end
 end

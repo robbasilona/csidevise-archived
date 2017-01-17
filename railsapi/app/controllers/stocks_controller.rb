@@ -50,6 +50,6 @@ class StocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params.fetch(:stock, {})
+      params.fetch(:stock, {}).permit(:quantity, :pin_id, :supply_id)
     end
 end
