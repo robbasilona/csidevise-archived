@@ -17,7 +17,7 @@ export class HomePage {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
   geocoder: any;
-  s_api: DataService;
+  api: DataService;
 
   public biscuit: Boolean;
   public water: Boolean;
@@ -31,26 +31,34 @@ export class HomePage {
   supplies: any;
   // windows: Array<any>;
 
-  constructor(public navCtrl: NavController, public api1: DataService) {
+  constructor(public navCtrl: NavController, public ds_api: DataService) {
     this.biscuit = true;
     this.water = false;
     this.goods = true;
     this.batteries = false;
-    this.s_api = api1;
-    // this.api.loadPins(0).then(data => {
-    //   this.pins = data;
-    // });
-    this.s_api.loadSupplies(0).then(data => {
+    this.api = ds_api;
+    this.api.loadSupplies(0).then(data => {
       this.supplies = data;
       for (let supply of this.supplies) {
         supply.enabled = false;
       }
+      this.supplies[0].enabled = true;
+      this.displayPins();
     });
   }
 
-  ionViewDidLoad(){
+  displayPins(){
+    this.pins = new Array<any>();
+    //get enabled supplies
+    for (let supply of this.supplies) {
+      if (supply.enabled) {
+        console.log(supply.id + ' ' + supply.name);
+        this.api.loadSupplyPins(supply.id).then(data => {
+          this.pins = this.pins.concat(data);
+        });
+      }
+    }
     this.loadMap();
-    // this.displayPins();
   }
 
   loadMap(){
@@ -60,7 +68,7 @@ export class HomePage {
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       let mapOptions = {
         center: latLng,
-        zoom: 15,
+        zoom: 13,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true
       }
@@ -101,29 +109,6 @@ export class HomePage {
     google.maps.event.addListener(marker, 'click', () => {
       infoWindow.open(this.map, marker);
     });
-  }
-
-  displayPins(){
-    //reset map
-    // for (let marker of this.markers) {
-    //   console.log(marker);
-    //   marker.setMap(null);
-    // }
-    // for (let window of this.windows) {
-    //   window.close();
-    // }
-    this.pins = new Array<any>();
-
-    //get enabled supplies
-    for (let supply of this.supplies) {
-      if (supply.enabled) {
-        console.log(supply.id + ' ' + supply.name);
-        this.s_api.loadSupplyPins(supply.id).then(data => {
-          this.pins = this.pins.concat(data);
-        });
-      }
-    }
-    this.loadMap();
   }
 
   addMarkerInfo(pin){

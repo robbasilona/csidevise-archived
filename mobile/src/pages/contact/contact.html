@@ -10,20 +10,23 @@
 
 
 <ion-content padding>
-    <ion-list>
-      <ion-item>
-        <ion-label>Trends</ion-label>
-        <ion-select [(ngModel)]="trends">
-          <ion-option value="occupancy">Occupancy</ion-option>
-          <ion-option value="resources">Resources</ion-option>
-          <ion-option value="calamity">Calamity</ion-option>
-          <ion-option value="evacuation">Evacuation</ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-  <ion-card>
+  <ion-list>
+    <ion-item>
+      <ion-label>Trends</ion-label>
+      <ion-select [(ngModel)]="trend" (ionChange)="trendChange()">
+        <ion-option value="occupancy">Occupancy</ion-option>
+        <ion-option value="resources">Resources</ion-option>
+        <ion-option value="calamity">Calamity</ion-option>
+        <ion-option value="evacuation">Evacuation</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-card>
     <img src="/assets/img/graph.png"/>
-    <!-- <ion-card-header>San Francisco</ion-card-header>
-    <ion-card-content>72 Listings</ion-card-content> -->
-  </ion-card>
+    <ion-card-header>San Francisco</ion-card-header>
+    <ion-card-content>72 Listings</ion-card-content>
+  </ion-card> -->
+  <div #graph id="graph">
+    <chart [options]="options"></chart>
+  </div>
 </ion-content>

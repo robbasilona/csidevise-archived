@@ -8,16 +8,16 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-
-development:
-  <<: *default
-  database: csidevise_development
   timeout: 5000
   username: csidevise
   password: csidevise
   host: localhost
   port: 5432
   template: template0
+
+development:
+  <<: *default
+  database: csidevise_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
