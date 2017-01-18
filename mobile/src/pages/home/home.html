@@ -5,11 +5,15 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let supply of supplies">
-      <ion-label>{{supply.name}}</ion-label>
-      <ion-toggle [(ngModel)]="supply.enabled" (ionChange)="displayPins()"></ion-toggle>
-    </ion-item>
-  </ion-list>
+  <ion-scroll zoom="false" scrollX="false" scrollY="true" style="width: 100%; height: 35%">
+    <ion-list>
+      <ion-item *ngFor="let supply of supplies">
+        <ion-label>{{supply.name}}</ion-label>
+        <ion-toggle [(ngModel)]="supply.enabled" (ionChange)="displayPins()"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-scroll>
+  
   <div #map id="map"></div>
+
 </ion-content>

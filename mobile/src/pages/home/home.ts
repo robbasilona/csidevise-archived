@@ -16,6 +16,7 @@ declare var google;
 export class HomePage {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
+  geocoder: any;
 
   public biscuit: Boolean;
   public water: Boolean;
