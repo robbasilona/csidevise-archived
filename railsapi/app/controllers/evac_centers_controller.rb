@@ -50,6 +50,6 @@ class EvacCentersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evac_center_params
-      params.fetch(:evac_center, {})
+      params.fetch(:evac_center, {}).permit(:name, :capacity, :quantity, :latitude, :longitude)
     end
 end

@@ -6,24 +6,10 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item>
-      <ion-label>3 Packs of Biscuits</ion-label>
-      <ion-toggle [(ngModel)]="biscuit"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>1.5L Water</ion-label>
-      <ion-toggle [(ngModel)]="water"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>3 Easy-Open Canned Goods</ion-label>
-      <ion-toggle [(ngModel)]="goods"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Batteries</ion-label>
-      <ion-toggle [(ngModel)]="batteries"></ion-toggle>
+    <ion-item *ngFor="let supply of supplies">
+      <ion-label>{{supply.name}}</ion-label>
+      <ion-toggle [(ngModel)]="supply.enabled" (ionChange)="displayPins()"></ion-toggle>
     </ion-item>
   </ion-list>
-
-  <h2>Your location is</h2>
-  <p>{{lat}}, {{lon}}</p>
+  <div #map id="map"></div>
 </ion-content>

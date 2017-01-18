@@ -50,6 +50,6 @@ class PinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.fetch(:pin, {})
+      params.fetch(:pin, {}).permit(:name, :classification, :latitude, :longitude)
     end
 end
