@@ -24,7 +24,7 @@ export class AboutPage {
   pins: any;
 
   constructor(public navCtrl: NavController, public api: DataService) {
-    this.api.loadCenters().then(data => {
+    this.api.loadCenters(0).then(data => {
       this.pins = data;
     });
   }
