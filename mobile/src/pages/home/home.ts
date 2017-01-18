@@ -36,9 +36,9 @@ export class HomePage {
     this.water = false;
     this.goods = true;
     this.batteries = false;
-    this.api.loadPins(0).then(data => {
-      this.pins = data;
-    });
+    // this.api.loadPins(0).then(data => {
+    //   this.pins = data;
+    // });
     this.api.loadSupplies(0).then(data => {
       this.supplies = data;
       for (let supply of this.supplies) {
@@ -65,8 +65,10 @@ export class HomePage {
       }
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
       this.addHomeInfo();
-      for (let pin of this.pins) {
-        this.addMarkerInfo(pin);
+      if (this.pins) {
+        for (let pin of this.pins) {
+          this.addMarkerInfo(pin);
+        }
       }
     }, (err) => {
       console.log(err);
@@ -97,29 +99,26 @@ export class HomePage {
 
   displayPins(){
     //reset map
-    for (let marker of this.markers) {
-      console.log(marker);
-      marker.setMap(null);
-    }
-    for (let window of this.windows) {
-      window.close();
-    }
+    // for (let marker of this.markers) {
+    //   console.log(marker);
+    //   marker.setMap(null);
+    // }
+    // for (let window of this.windows) {
+    //   window.close();
+    // }
     this.pins = new Array<any>();
-    this.markers = new Array<any>();
-    this.windows = new Array<any>();
 
     //get enabled supplies
     for (let supply of this.supplies) {
       if (supply.enabled) {
-        console.log('yes');
+        console.log(supply.id + ' ' + supply.name);
         this.api.loadSupplyPins(supply.id).then(data => {
           this.pins = this.pins.concat(data);
         });
       }
     }
-    for (let pin of this.pins) {
-      this.addMarkerInfo(pin);
-    }
+    console.log(this.pins);
+    this.loadMap();
   }
 
   addMarkerInfo(pin){
@@ -135,12 +134,10 @@ export class HomePage {
       position: new google.maps.LatLng(pin.latitude, pin.longitude),
       icon: icon
     });
-    this.markers += marker;
     let content = pin.name + "<br><i>" + pin.classification + "</i>";
     let infoWindow = new google.maps.InfoWindow({
       content: content
     });
-    this.windows += infoWindow;
     google.maps.event.addListener(marker, 'click', () => {
       infoWindow.open(this.map, marker);
     });

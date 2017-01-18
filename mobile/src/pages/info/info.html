@@ -29,7 +29,8 @@
   </div>
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'tab1'">
-      <ion-scroll zoom="false" scrollX="false" scrollY="true" width="100%" height="100%">
+      <div padding></div>
+      <ion-scroll zoom="false" scrollX="false" scrollY="true" style="width: 100%; height: 30rem">
         <p class="desc" align="justify">Refu<strong>Geo</strong> is a location-based application that aims to promote disaster preparedness and public safety by incorporating the following features:</p>
         <ul>
         	<li>A <strong>resource checklist</strong> that allows users to track if they have the necessary materials in their emergency kits such as biscuits, water, medicines, and other necessities that should be procured in preparation for disasters.</li>
@@ -38,12 +39,11 @@
         	<li>A <strong>graphic representation</strong> of data from previous calamities that show records on occupancy record of nearby evacuation areas, abundance and/or lack of resources during calamities in the area, record of previous calamities in the area, and evacuation records for the nearby evacuation areas.</li>
         </ul>
       </ion-scroll>
+
     </ion-list>
     <ion-list *ngSwitchCase="'tab2'">
-    <div padding>
-    </div>
-
-    <ion-scroll zoom="false" scrollX="false" scrollY="true" width="100%" height="100%">
+    <div padding></div>
+    <ion-scroll zoom="false" scrollX="false" scrollY="true" style="width: 100%; height: 30rem">
       <ion-list>
   		<ion-item>
 		    <ion-avatar item-left>
