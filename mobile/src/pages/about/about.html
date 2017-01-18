@@ -6,10 +6,10 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-label>Location: {{loc}}</ion-label>
+    <ion-label>{{loc}}</ion-label>
   </ion-item>
     <ion-fab right bottom>
-      <button ion-fab mini color="white">
+      <button ion-fab mini color="white" (click)="goToCenter()">
         <ion-icon name="md-locate"></ion-icon>
       </button>
     </ion-fab>

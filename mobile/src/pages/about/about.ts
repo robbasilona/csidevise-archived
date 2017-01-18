@@ -71,6 +71,11 @@ export class AboutPage {
     });
   }
 
+  goToCenter(){
+    console.log('clicked center');
+    this.map.panTo(new google.maps.LatLng(this.lat, this.lon));
+  }
+
   addMarkerInfo(pin){
     let marker = new google.maps.Marker({
       map: this.map,
