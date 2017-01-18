@@ -12,7 +12,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'info.html'
 })
 export class InfoPage {
-  pet: string = 'kittens';
+  pet: string = 'tab1';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 

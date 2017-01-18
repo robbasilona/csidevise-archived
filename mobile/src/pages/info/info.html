@@ -15,19 +15,20 @@
 
 <ion-content padding>
   <div>
+  	<img src="/assets/img/iconwithtext.png">
+  </div>
+  <div>
     <ion-segment [(ngModel)]="pet">
-      <ion-segment-button value="kittens">
-        First
+      <ion-segment-button value="tab1">
+        App Info and Features
       </ion-segment-button>
-      <ion-segment-button value="puppies">
-        Second
+      <ion-segment-button value="tab2">
+        Technologies Used
       </ion-segment-button>
     </ion-segment>
   </div>
   <div [ngSwitch]="pet">
-
-    <ion-list *ngSwitchCase="'kittens'">
-      <img src="/assets/img/iconwithtext.png">
+    <ion-list *ngSwitchCase="'tab1'">
       <p class="desc" align="justify">Refu<strong>Geo</strong> is a location-based application that aims to promote disaster preparedness and public safety by incorporating the following features:</p>
       <ul>
       	<li>A <strong>resource checklist</strong> that allows users to track if they have the necessary materials in their emergency kits such as biscuits, water, medicines, and other necessities that should be procured in preparation for disasters.</li>
@@ -36,13 +37,60 @@
       	<li>A <strong>graphic representation</strong> of data from previous calamities that show records on occupancy record of nearby evacuation areas, abundance and/or lack of resources during calamities in the area, record of previous calamities in the area, and evacuation records for the nearby evacuation areas.</li>
       </ul>
     </ion-list>
-    <ion-list *ngSwitchCase="'puppies'">
-      <ion-item>
-        <ion-thumbnail item-left>
-          <img src="img/thumbnail-puppy-1.jpg">
-        </ion-thumbnail>
-        <h2>Ruby</h2>
-      </ion-item>
+    <ion-list *ngSwitchCase="'tab2'">
+    <div padding>
+    </div>
+      <ion-list>
+  		<ion-item>
+		    <ion-avatar item-left>
+				<img src="/assets/img/rails.png">
+			</ion-avatar>
+			<h2>Ruby On Rails 5.0.1</h2>
+			<p>I've had a pretty messed up day. If we just...</p>
+		</ion-item>
+		<ion-item>
+		    <ion-avatar item-left>
+				<img src="/assets/img/psql.png">
+			</ion-avatar>
+			<h2>PostgreSQL</h2>
+			<p>I've had a pretty messed up day. If we just...</p>
+		</ion-item>
+		<ion-item>
+		    <ion-avatar item-left>
+				<img src="/assets/img/ionic.png">
+			</ion-avatar>
+			<h2>Ionic 2.0</h2>
+			<p>I've had a pretty messed up day. If we just...</p>
+		</ion-item>
+		<ion-item>
+		    <ion-avatar item-left>
+				<img src="/assets/img/gmaps.png">
+			</ion-avatar>
+			<h2>Google Maps API</h2>
+			<p>I've had a pretty messed up day. If we just...</p>
+		</ion-item>
+		<ion-item>
+		    <ion-avatar item-left>
+				<img src="/assets/img/chikka.png">
+			</ion-avatar>
+			<h2>Chikka Messenger API</h2>
+			<p>I've had a pretty messed up day. If we just...</p>
+		</ion-item>
+		<ion-item>
+		    <ion-avatar item-left>
+				<img src="/assets/img/fbmessenger.png">
+			</ion-avatar>
+			<h2>Facebook Messenger Bot</h2>
+			<p>I've had a pretty messed up day. If we just...</p>
+		</ion-item>
+		<ion-item>
+		    <ion-avatar item-left>
+				<img src="/assets/img/highcharts.png">
+			</ion-avatar>
+			<h2>HighCharts</h2>
+			<p>I've had a pretty messed up day. If we just...</p>
+		</ion-item>
+	</ion-list>
     </ion-list>
   </div>
 </ion-content>
