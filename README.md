@@ -58,6 +58,7 @@ Google Maps API keys
 ```
 AIzaSyAnesP8EwTMBecjSmPBzeMp1hP3sG3IPgE
 AIzaSyDwCB5OuH2bl37BlHL9hyCWmN9tmobombo
+AIzaSyCX0aSEKjuihv_6GTOVQ4ZMpPX4I_XxMrY	
 ```
 Chikka API
 ```
