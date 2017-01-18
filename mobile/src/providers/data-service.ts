@@ -16,12 +16,16 @@ export class DataService {
     console.log('Hello DataService Provider');
   }
 
-  loadPins(){
+  loadPins(id){
     if(this.data){
       return Promise.resolve(this.data);
     }
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/pins')
+      let url = 'http://localhost:3000/pins';
+      if (id) {
+        url += '/' + id;
+      }
+      this.http.get(url)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -30,12 +34,49 @@ export class DataService {
     });
   }
 
-  loadCenters(){
+  loadSupplies(id){
     if(this.data){
       return Promise.resolve(this.data);
     }
     return new Promise(resolve => {
-      this.http.get('http://localhost:3000/evac_centers')
+      let url = 'http://localhost:3000/supplies';
+      if (id) {
+        url += '/' + id;
+      }
+      this.http.get(url)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        });
+    });
+  }
+
+  loadSupplyPins(sid){
+    if(this.data){
+      return Promise.resolve(this.data);
+    }
+    return new Promise(resolve => {
+      let url = 'http://localhost:3000/supplies/' + sid + '/pins';
+      this.http.get(url)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        });
+    });
+  }
+
+  loadCenters(id){
+    if(this.data){
+      return Promise.resolve(this.data);
+    }
+    return new Promise(resolve => {
+      let url = 'http://localhost:3000/evac_centers';
+      if (id) {
+        url += '/' + id;
+      }
+      this.http.get(url)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
