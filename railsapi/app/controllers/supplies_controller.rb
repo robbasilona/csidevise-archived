@@ -1,5 +1,5 @@
 class SuppliesController < ApplicationController
-  before_action :set_supply, only: [:show, :update, :destroy]
+  before_action :set_supply, only: [:show, :showPins, :update, :destroy]
 
   # GET /supplies
   # GET /supplies.json
@@ -12,6 +12,10 @@ class SuppliesController < ApplicationController
   # GET /supplies/1.json
   def show
     render json: @supply
+  end
+
+  def showPins
+    render json: @supply.pins
   end
 
   # POST /supplies

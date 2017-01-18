@@ -27,6 +27,8 @@ bundle exec rails db:create db:migrate db:seed
 bundle exec rails s
 ```
 
+Might need to execute *bundle install* and *bundle exec rails db:reset* if there are changes in Gemfile and seeds.rb.
+
 ### Ionic Setup
 ```
 #no need to change working directory
@@ -35,8 +37,14 @@ nvm use stable
 npm install -g cordova ionic
 cd csidevise/mobile
 npm install
+ionic plugin add cordova-plugin-geolocation
+ionic plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="AIzaSyAnesP8EwTMBecjSmPBzeMp1hP3sG3IPgE" --variable API_KEY_FOR_IOS="AIzaSyAnesP8EwTMBecjSmPBzeMp1hP3sG3IPgE"
+npm install @types/google-maps
+cordova telemetry on
 ionic serve
 ```
+
+Might need to execute *npm install* to install other packages.
 
 ### Dummy login accounts
 username:
@@ -46,9 +54,10 @@ password:
 See *seeds.rb* for more details.
 
 ### Some API credentials
-Google Maps API key
+Google Maps API keys
 ```
 AIzaSyAnesP8EwTMBecjSmPBzeMp1hP3sG3IPgE
+AIzaSyDwCB5OuH2bl37BlHL9hyCWmN9tmobombo
 ```
 Chikka API
 ```

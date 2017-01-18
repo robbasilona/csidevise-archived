@@ -1,5 +1,5 @@
 class PinsController < ApplicationController
-  before_action :set_pin, only: [:show, :update, :destroy]
+  before_action :set_pin, only: [:show, :showSupplies, :update, :destroy]
 
   # GET /pins
   # GET /pins.json
@@ -12,6 +12,10 @@ class PinsController < ApplicationController
   # GET /pins/1.json
   def show
     render json: @pin
+  end
+
+  def showSupplies
+    render json: @pin.supplies
   end
 
   # POST /pins
