@@ -47,4 +47,7 @@ gem 'geokit-rails'
 #For Chikka API
 gem 'chikka'
 
+#For Geocoding
+gem 'geokit-rails'
+
 ruby "2.3.0"
