@@ -65,6 +65,8 @@ export class HomePage {
     Geolocation.getCurrentPosition().then((position) => {
       this.lat = position.coords.latitude;
       this.lon = position.coords.longitude;
+      this.geocoder = new google.maps.Geocoder;
+      this.reverseGeo();
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       let mapOptions = {
         center: latLng,
@@ -108,6 +110,17 @@ export class HomePage {
     });
     google.maps.event.addListener(marker, 'click', () => {
       infoWindow.open(this.map, marker);
+    });
+  }
+
+  reverseGeo(){
+    let latlng = {lat: this.lat, lng: this.lon};
+    this.geocoder.geocode({'location': latlng}, (results, status) => {
+      if (status === 'OK') {
+        this.loc = results[0].formatted_address;
+      } else {
+        console.log('Geocoder failed due to ', status);
+      }
     });
   }
 
