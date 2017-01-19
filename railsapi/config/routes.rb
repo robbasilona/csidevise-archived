@@ -12,4 +12,4 @@ Rails.application.routes.draw do
 
   get 'supplies/:id/pins' => 'supplies#showPins'
   get 'pins/:id/supplies' => 'pins#showSupplies'
-end
+ends
