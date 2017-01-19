@@ -9,8 +9,8 @@ class ChikkaController < ApplicationController
   	@request_id = params[:request_id]
   	@message = params[:message]
 
-  	client = Chikka::Client.new(client_id:'637c944b7bc58998ad060f24427708d88bb81a00f8e319c833acb7c465138ee0', secret_key:'04ca9a305e7061a634274cdad89eb3cd96142a104a217b2ee019ed31dad31b35', shortcode:'2929017116')
-  	client.send_message(message: "Hi koya", mobile_number:@mobile_number, request_id: @request_id, request_cost: 'P1.00')
+  	client = Chikka::Client.new(client_id:'f3be0f5b7d2abc0ce6fc0dccf7ecc049272af5679fbf5a547429cbaddb0391ff', secret_key:'757f94e11c41b07a8eb846c20ad1db7fcb98b07a57b85ebe7092c3e4c457f87b', shortcode:'29290469148')
+  	client.send_message(message: "Hi koya", mobile_number:@mobile_number, request_id: @request_id, request_cost: 'FREE')
   	render json: client
   end
 end
