@@ -6,11 +6,18 @@ class EvacCentersController < ApplicationController
   # GET /evac_centers
   # GET /evac_centers.json
   def index
-    # @location = MultiGeocoder.geocode(request.remote_ip)
-    @location = MultiGeocoder.geocode('202.92.132.253')
-    # @evac_centers = EvacCenter.all
-    @evac_centers = EvacCenter.rank(@location)
+    @evac_centers = EvacCenter.all
     render json: @evac_centers
+  end
+
+  def rank
+    src = EvacCenter.new(name: 'User', latitude: params[:lat], longitude: params[:lon])
+    @evac_centers = EvacCenter.rank(src)
+    render json: @evac_centers
+  end
+
+  def near
+    render text: EvacCenter.get_result(params[:place])
   end
 
   # GET /evac_centers/1
