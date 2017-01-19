@@ -1,2 +1,2 @@
-bin/rails db:reset
-bin/rails server -p $PORT -e $RAILS_ENV
+web: bin/rails db:reset
+web: bin/rails server -p $PORT -e $RAILS_ENV
