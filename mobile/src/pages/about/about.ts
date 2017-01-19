@@ -30,33 +30,34 @@ export class AboutPage {
   }
 
   ionViewDidLoad(){
-    this.api.loadCenters(0).then(data => {
-      this.pins = data;
-      this.loadMap();
+    Geolocation.getCurrentPosition().then((position) => {
+      this.lat = position.coords.latitude;
+      this.lon = position.coords.longitude;
+      console.log('Detected location at ' + this.lat + ',' + this.lon);
+      this.api.loadRankedCenters(this.lat, this.lon).then(data => {
+        this.pins = data;
+        this.loadMap();
+      });
+    }, (err) => {
+      console.log(err);
     });
   }
 
   loadMap(){
-    Geolocation.getCurrentPosition().then((position) => {
-      this.lat = position.coords.latitude;
-      this.lon = position.coords.longitude;
-      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      let mapOptions = {
-        center: latLng,
-        zoom: 13,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        disableDefaultUI: true
-      }
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-      this.geocoder = new google.maps.Geocoder;
-      this.addHomeInfo();
-      this.reverseGeo();
-      for (let pin of this.pins) {
-        this.addMarkerInfo(pin);
-      }
-    }, (err) => {
-      console.log(err);
-    });
+    let latLng = new google.maps.LatLng(this.lat, this.lon);
+    let mapOptions = {
+      center: latLng,
+      zoom: 13,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true
+    }
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    this.geocoder = new google.maps.Geocoder;
+    this.addHomeInfo();
+    this.reverseGeo();
+    for (let pin of this.pins) {
+      this.addMarkerInfo(pin);
+    }
   }
 
   addHomeInfo(){
