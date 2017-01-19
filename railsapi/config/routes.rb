@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #Bots
   post 'msg_bot/receiveMsg' => 'msg_bot#receiveMsg'
 
   post 'chikka/receive' => 'chikka#receiveChikka'
@@ -12,4 +13,4 @@ Rails.application.routes.draw do
 
   get 'supplies/:id/pins' => 'supplies#showPins'
   get 'pins/:id/supplies' => 'pins#showSupplies'
-ends
+end
