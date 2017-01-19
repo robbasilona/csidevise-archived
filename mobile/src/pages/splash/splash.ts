@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 
 /*
@@ -14,7 +14,53 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class SplashPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController) {}
+
+  presentLoadingDefault() {
+  let loading = this.loadingCtrl.create({
+    content: 'Please wait...'
+  });
+
+  loading.present();
+
+  setTimeout(() => {
+    loading.dismiss();
+  }, 5000);
+}
+
+presentLoadingCustom() {
+  let loading = this.loadingCtrl.create({
+    spinner: 'hide',
+    content: `
+      <div class="custom-spinner-container">
+        <div class="custom-spinner-box"></div>
+      </div>`,
+    duration: 5000
+  });
+
+  loading.onDidDismiss(() => {
+    console.log('Dismissed loading');
+  });
+
+  loading.present();
+}
+
+presentLoadingText() {
+  let loading = this.loadingCtrl.create({
+    spinner: 'hide',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
+
+  setTimeout(() => {
+    this.navCtrl.push(TabsPage);
+  }, 1000);
+
+  setTimeout(() => {
+    loading.dismiss();
+  }, 5000);
+}
 
   goTo(){
     this.navCtrl.push(TabsPage);
