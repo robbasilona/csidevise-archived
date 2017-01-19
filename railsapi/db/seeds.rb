@@ -18,8 +18,11 @@ pin = Pin.create(name: "KNL Minimart", classification: "grocery", latitude: "14.
 pin = Pin.create(name: "Rustans", classification: "grocery", latitude: "14.642811", longitude: "121.074164")
 pin = Pin.create(name: "Ministop", classification: "grocery", latitude: "14.632353", longitude: "121.07448")
 pin = Pin.create(name: "7-11", classification: "grocery", latitude: "14.632383", longitude: "121.073988")
-pin = Pin.create(name: "Krus Na Ligas Covered Court", classification: "court", latitude: "14.6441207", longitude: "121.052709")
-pin = Pin.create(name: "UP CHK Gymnasium", classification: "court", latitude: "14.6592182", longitude: "121.0628019")
+# pin = Pin.create(name: "Krus Na Ligas Covered Court", classification: "court", latitude: "14.6441207", longitude: "121.052709")
+# pin = Pin.create(name: "UP CHK Gymnasium", classification: "court", latitude: "14.6592182", longitude: "121.0628019")
+
+EvacCenter.create(name: "Krus Na Ligas Covered Court", capacity: 1000, quantity: 235, latitude: "14.6441207", longitude: "121.052709")
+EvacCenter.create(name: "UP CHK Gymnasium", capacity: 3000, quantity: 1625, latitude: "14.6592182", longitude: "121.0628019")
 
 supply = Supply.create(name: "Canned Goods", category: "Food")
 supply = Supply.create(name: "Biscuits", category: "Food")

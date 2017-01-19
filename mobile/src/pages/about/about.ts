@@ -17,20 +17,23 @@ export class AboutPage {
   @ViewChild('map1') mapElement: ElementRef;
   map: any;
   geocoder: any;
+  api: any;
 
   loc: string;
   lat: number;
   lon: number;
   pins: any;
+  icons = ['http://maps.google.com/mapfiles/ms/icons/red-dot.png', 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'];
 
-  constructor(public navCtrl: NavController, public api: DataService) {
-    this.api.loadCenters(0).then(data => {
-      this.pins = data;
-    });
+  constructor(public navCtrl: NavController, public ds_api: DataService) {
+    this.api = ds_api;
   }
 
   ionViewDidLoad(){
-    this.loadMap();
+    this.api.loadCenters(0).then(data => {
+      this.pins = data;
+      this.loadMap();
+    });
   }
 
   loadMap(){
@@ -40,7 +43,7 @@ export class AboutPage {
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       let mapOptions = {
         center: latLng,
-        zoom: 15,
+        zoom: 13,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true
       }
@@ -57,10 +60,17 @@ export class AboutPage {
   }
 
   addHomeInfo(){
+    let icon = {
+      url: this.icons[2], // url
+      scaledSize: new google.maps.Size(22, 24), // scaled size
+      origin: new google.maps.Point(0,0), // origin
+      anchor: new google.maps.Point(0, 0) // anchor
+    };
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
-      position: this.map.getCenter()
+      position: this.map.getCenter(),
+      icon: icon
     });
     let content = "Current Location";
     let infoWindow = new google.maps.InfoWindow({
@@ -71,13 +81,25 @@ export class AboutPage {
     });
   }
 
+  goToCenter(){
+    console.log('clicked center');
+    this.map.panTo(new google.maps.LatLng(this.lat, this.lon));
+  }
+
   addMarkerInfo(pin){
+    let icon = {
+      url: this.icons[0], // url
+      scaledSize: new google.maps.Size(22, 24), // scaled size
+      origin: new google.maps.Point(0,0), // origin
+      anchor: new google.maps.Point(0, 0) // anchor
+    };
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.FADE,
-      position: new google.maps.LatLng(pin.latitude, pin.longitude)
+      position: new google.maps.LatLng(pin.latitude, pin.longitude),
+      icon: icon
     });
-    let content = pin.name + "<br><i>" + pin.classification + "</i>";
+    let content = pin.name + "<br><i>" + pin.quantity + '/' + pin.capacity +  " slots</i>";
     let infoWindow = new google.maps.InfoWindow({
       content: content
     });
@@ -93,6 +115,25 @@ export class AboutPage {
         this.loc = results[0].formatted_address;
       } else {
         console.log('Geocoder failed due to ', status);
+      }
+    });
+  }
+
+  navigate(pin){
+    console.log('Navigating to ' + pin.name);
+    let directionsService = new google.maps.DirectionsService;
+    let directionsDisplay = new google.maps.DirectionsRenderer;
+    this.map = new google.maps.Map(this.mapElement.nativeElement, {disableDefaultUI: true});
+    directionsDisplay.setMap(this.map);
+    directionsService.route({
+      origin: new google.maps.LatLng(this.lat, this.lon),
+      destination: new google.maps.LatLng(pin.latitude, pin.longitude),
+      travelMode: 'WALKING'
+    }, (response, status) => {
+      if (status === 'OK') {
+        directionsDisplay.setDirections(response);
+      } else {
+        console.log('Directions request failed due to ' + status);
       }
     });
   }

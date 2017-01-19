@@ -10,16 +10,12 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class DataService {
-  data: any;
 
   constructor(public http: Http) {
     console.log('Hello DataService Provider');
   }
 
   loadPins(id){
-    if(this.data){
-      return Promise.resolve(this.data);
-    }
     return new Promise(resolve => {
       let url = 'http://localhost:3000/pins';
       if (id) {
@@ -28,16 +24,12 @@ export class DataService {
       this.http.get(url)
         .map(res => res.json())
         .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
+          resolve(data);
         });
     });
   }
 
   loadSupplies(id){
-    if(this.data){
-      return Promise.resolve(this.data);
-    }
     return new Promise(resolve => {
       let url = 'http://localhost:3000/supplies';
       if (id) {
@@ -46,31 +38,24 @@ export class DataService {
       this.http.get(url)
         .map(res => res.json())
         .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
+          resolve(data);
         });
     });
   }
 
   loadSupplyPins(sid){
-    if(this.data){
-      return Promise.resolve(this.data);
-    }
     return new Promise(resolve => {
       let url = 'http://localhost:3000/supplies/' + sid + '/pins';
+      console.log(url);
       this.http.get(url)
         .map(res => res.json())
         .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
+          resolve(data);
         });
     });
   }
 
   loadCenters(id){
-    if(this.data){
-      return Promise.resolve(this.data);
-    }
     return new Promise(resolve => {
       let url = 'http://localhost:3000/evac_centers';
       if (id) {
@@ -79,8 +64,7 @@ export class DataService {
       this.http.get(url)
         .map(res => res.json())
         .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
+          resolve(data);
         });
     });
   }

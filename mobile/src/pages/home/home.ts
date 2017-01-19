@@ -17,6 +17,7 @@ export class HomePage {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
   geocoder: any;
+  api: DataService;
 
   public biscuit: Boolean;
   public water: Boolean;
@@ -27,29 +28,37 @@ export class HomePage {
   loc: string;
   icons = ['http://maps.google.com/mapfiles/ms/icons/red-dot.png', 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'];
   pins: Array<any>;
-  supplies: Array<any>;
-  markers: Array<any>;
-  windows: Array<any>;
+  supplies: any;
+  // windows: Array<any>;
 
-  constructor(public navCtrl: NavController, public api: DataService) {
+  constructor(public navCtrl: NavController, public ds_api: DataService) {
     this.biscuit = true;
     this.water = false;
     this.goods = true;
     this.batteries = false;
-    // this.api.loadPins(0).then(data => {
-    //   this.pins = data;
-    // });
+    this.api = ds_api;
     this.api.loadSupplies(0).then(data => {
       this.supplies = data;
       for (let supply of this.supplies) {
         supply.enabled = false;
       }
+      this.supplies[0].enabled = true;
+      this.displayPins();
     });
   }
 
-  ionViewDidLoad(){
+  displayPins(){
+    this.pins = new Array<any>();
+    //get enabled supplies
+    for (let supply of this.supplies) {
+      if (supply.enabled) {
+        console.log(supply.id + ' ' + supply.name);
+        this.api.loadSupplyPins(supply.id).then(data => {
+          this.pins = this.pins.concat(data);
+        });
+      }
+    }
     this.loadMap();
-    // this.displayPins();
   }
 
   loadMap(){
@@ -59,7 +68,7 @@ export class HomePage {
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       let mapOptions = {
         center: latLng,
-        zoom: 15,
+        zoom: 13,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true
       }
@@ -73,6 +82,11 @@ export class HomePage {
     }, (err) => {
       console.log(err);
     });
+  }
+
+  goToCenter(){
+    console.log('clicked center');
+    this.map.panTo(new google.maps.LatLng(this.lat, this.lon));
   }
 
   addHomeInfo(){
@@ -95,30 +109,6 @@ export class HomePage {
     google.maps.event.addListener(marker, 'click', () => {
       infoWindow.open(this.map, marker);
     });
-  }
-
-  displayPins(){
-    //reset map
-    // for (let marker of this.markers) {
-    //   console.log(marker);
-    //   marker.setMap(null);
-    // }
-    // for (let window of this.windows) {
-    //   window.close();
-    // }
-    this.pins = new Array<any>();
-
-    //get enabled supplies
-    for (let supply of this.supplies) {
-      if (supply.enabled) {
-        console.log(supply.id + ' ' + supply.name);
-        this.api.loadSupplyPins(supply.id).then(data => {
-          this.pins = this.pins.concat(data);
-        });
-      }
-    }
-    console.log(this.pins);
-    this.loadMap();
   }
 
   addMarkerInfo(pin){

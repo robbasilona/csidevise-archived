@@ -17,7 +17,7 @@
   <div>
   	<img src="/assets/img/iconwithtext.png">
   </div>
-  <div>
+  <div padding>
     <ion-segment [(ngModel)]="pet">
       <ion-segment-button value="tab1">
         App Info and Features
@@ -29,7 +29,7 @@
   </div>
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'tab1'">
-      <div padding></div>
+      <!-- <div padding></div> -->
       <ion-scroll zoom="false" scrollX="false" scrollY="true" style="width: 100%; height: 30rem; padding-top: 0px">
         <p class="desc" align="justify" style="padding: 0; margin: 0">Refu<strong>Geo</strong> is a location-based application that aims to promote disaster preparedness and public safety by incorporating the following features:</p>
         <ul>
@@ -39,77 +39,77 @@
         	<li>A <strong>graphic representation</strong> of data from previous calamities that show records on occupancy record of nearby evacuation areas, abundance and/or lack of resources during calamities in the area, record of previous calamities in the area, and evacuation records for the nearby evacuation areas.</li>
         </ul>
       </ion-scroll>
-
     </ion-list>
+
     <ion-list *ngSwitchCase="'tab2'">
-    <div padding></div>
-    <ion-scroll zoom="false" scrollX="false" scrollY="true" style="width: 100%; height: 30rem">
+      <!-- <div padding></div> -->
+      <ion-scroll zoom="false" scrollX="false" scrollY="true" style="width: 100%; height: 30rem">
       <ion-list>
-        <a href="https://rubyonrails.org">
-    		<ion-item>
-  		    <ion-avatar item-left>
-    				<img src="/assets/img/rails.png">
-    			</ion-avatar>
-    			<h2>Ruby On Rails 5.0.1</h2>
-    			<p>Back-end and API</p>
-    		</ion-item>
-      </a>
-    <a href="https://postgresql.org">
-  		<ion-item>
-  		    <ion-avatar item-left>
-  				<img src="/assets/img/psql.png">
-  			</ion-avatar>
-  			<h2>PostgreSQL</h2>
-  			<p>Database Management</p>
-  		</ion-item>
-    </a>
-    <a href="https://ionicframework.com">
-  		<ion-item>
-  		    <ion-avatar item-left>
-  				<img src="/assets/img/ionic.png">
-  			</ion-avatar>
-  			<h2>Ionic 2.0</h2>
-  			<p>Mobile Development</p>
-  		</ion-item>
-    </a>
-    <a href="https://developers.google.com/maps/">
-  		<ion-item>
-  		    <ion-avatar item-left>
-  				<img src="/assets/img/gmaps.png">
-  			</ion-avatar>
-  			<h2>Google Maps API</h2>
-  			<p>Geolocation</p>
-  		</ion-item>
-    </a>
-    <a href="https://api.chikka.com">
-  		<ion-item>
-  		    <ion-avatar item-left>
-  				<img src="/assets/img/chikka.png">
-  			</ion-avatar>
-  			<h2>Chikka Messenger API</h2>
-  			<p>SMS Communication Service</p>
-  		</ion-item>
-    </a>
-    <a href="https://messengerplatform.fb.com/">
-      <ion-item>
-  		    <ion-avatar item-left>
-  				<img src="/assets/img/fbmessenger.png">
-  			</ion-avatar>
-  			<h2>Facebook Messenger Bot</h2>
-  			<p>Facebook Service</p>
-  		</ion-item>
-    </a>
-    <a href="https://highcharts.com">
-  		<ion-item>
-  		    <ion-avatar item-left>
-  				<img src="/assets/img/highcharts.png">
-  			</ion-avatar>
-  			<h2>HighCharts</h2>
-  			<p>Data Representation</p>
-  		</ion-item>
-    </a>
-	 </ion-list>
-  </ion-scroll>
-</ion-list>
+            <a href="https://rubyonrails.org">
+        		<ion-item>
+      		    <ion-avatar item-left>
+        				<img src="/assets/img/rails.png">
+        			</ion-avatar>
+        			<h2>Ruby On Rails 5.0.1</h2>
+        			<p>Back-end and API</p>
+        		</ion-item>
+          </a>
+        <a href="https://postgresql.org">
+      		<ion-item>
+      		    <ion-avatar item-left>
+      				<img src="/assets/img/psql.png">
+      			</ion-avatar>
+      			<h2>PostgreSQL</h2>
+      			<p>Database Management</p>
+      		</ion-item>
+        </a>
+        <a href="https://ionicframework.com">
+      		<ion-item>
+      		    <ion-avatar item-left>
+      				<img src="/assets/img/ionic.png">
+      			</ion-avatar>
+      			<h2>Ionic 2.0</h2>
+      			<p>Mobile Development</p>
+      		</ion-item>
+        </a>
+        <a href="https://developers.google.com/maps/">
+      		<ion-item>
+      		    <ion-avatar item-left>
+      				<img src="/assets/img/gmaps.png">
+      			</ion-avatar>
+      			<h2>Google Maps API</h2>
+      			<p>Geolocation</p>
+      		</ion-item>
+        </a>
+        <a href="https://api.chikka.com">
+      		<ion-item>
+      		    <ion-avatar item-left>
+      				<img src="/assets/img/chikka.png">
+      			</ion-avatar>
+      			<h2>Chikka Messenger API</h2>
+      			<p>SMS Communication Service</p>
+      		</ion-item>
+        </a>
+        <a href="https://messengerplatform.fb.com/">
+          <ion-item>
+      		    <ion-avatar item-left>
+      				<img src="/assets/img/fbmessenger.png">
+      			</ion-avatar>
+      			<h2>Facebook Messenger Bot</h2>
+      			<p>Facebook Service</p>
+      		</ion-item>
+        </a>
+        <a href="https://highcharts.com">
+      		<ion-item>
+      		    <ion-avatar item-left>
+      				<img src="/assets/img/highcharts.png">
+      			</ion-avatar>
+      			<h2>HighCharts</h2>
+      			<p>Data Representation</p>
+      		</ion-item>
+        </a>
+    	 </ion-list>
+      </ion-scroll>
+    </ion-list>
   </div>
 </ion-content>

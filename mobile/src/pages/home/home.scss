@@ -1,7 +1,11 @@
 page-home {
-  // .scroll-content {
-  //   height: 100%
-  // }
+  #resources {
+    width: 100%;
+    height: 35%;
+  }
+  #resources > .scroll-content {
+    padding: 0;
+  }
   #map {
     width: 100%;
     height: 60%;
