@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  post 'msg_bot/receiveMsg' => 'msg_bot#receiveMsg'
+
   post 'chikka/receive' => 'chikka#receiveChikka'
-  
+
   resources :evac_centers
   resources :stocks
   resources :pins
