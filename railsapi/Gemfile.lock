@@ -42,6 +42,7 @@ GEM
     bcrypt (3.1.11)
     builder (3.2.3)
     byebug (9.0.6)
+    chikka (0.2.2)
     concurrent-ruby (1.0.4)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -141,6 +142,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  chikka
   devise
   geokit-rails
   jbuilder (~> 2.5)
@@ -152,6 +154,9 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+
+RUBY VERSION
+   ruby 2.3.0p0
 
 BUNDLED WITH
    1.13.7

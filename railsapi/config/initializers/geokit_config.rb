@@ -98,3 +98,5 @@ Geokit::Geocoders::ip_provider_order = [:geo_plugin,:ip]
 # Setting this to VERIFY_NONE may be needed on systems that don't have
 # a complete or up to date root certificate store. Only applies to
 # the Net::HTTP adapter.
+Geokit::Geocoders::provider_order=[:google]
+Geokit::Geocoders::GoogleGeocoder.api_key = 'AIzaSyDwCB5OuH2bl37BlHL9hyCWmN9tmobombo'

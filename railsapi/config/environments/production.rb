@@ -73,6 +73,9 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  # Disable database checking on production db reset
+  ENV['DISABLE_DATABASE_ENVIRONMENT_CHECK'] = '1'
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
