@@ -8,13 +8,12 @@
   <ion-item>
     <ion-label>{{loc}}</ion-label>
   </ion-item>
-    <ion-fab right bottom>
-      <button ion-fab mini color="white" (click)="goToCenter()">
-        <ion-icon name="md-locate"></ion-icon>
-      </button>
-    </ion-fab>
-    <div #map1 id="map1"></div>
-
+  <ion-fab middle right>
+    <button ion-fab mini color="blue" (click)="gotoCenter()">
+      <ion-icon name="md-locate"></ion-icon>
+    </button>
+  </ion-fab>
+  <div #map1 id="map1"></div>
   <br>
 
   <ion-list>
