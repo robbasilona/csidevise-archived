@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { InfoPage } from '../pages/info/info';
 import { SplashPage } from '../pages/splash/splash';
+import { BrowserModule } from '@angular/platform-browser';
+import { ChartModule } from 'angular2-highcharts';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SplashPage } from '../pages/splash/splash';
     SplashPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    BrowserModule,
+    ChartModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -6,23 +6,19 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-label>Location: {{loc}}</ion-label>
+    <ion-label>{{loc}}</ion-label>
   </ion-item>
+  <ion-fab middle right>
+    <button ion-fab mini color="blue" (click)="gotoCenter()">
+      <ion-icon name="md-locate"></ion-icon>
+    </button>
+  </ion-fab>
   <div #map1 id="map1"></div>
-
   <br>
 
   <ion-list>
-    <ion-item>
-      <ion-label>KNL Court</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>UP CHK Gym</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Pook Dagohoy</ion-label>
+    <ion-item *ngFor="let pin of pins" (click)="navigate(pin)">
+      <ion-label>{{pin.name}}</ion-label>
     </ion-item>
 
   </ion-list>
