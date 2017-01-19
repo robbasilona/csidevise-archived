@@ -14,10 +14,10 @@ class EvacCenter < ApplicationRecord
 	 	#get feasible solutions
 		# geocoder = GoogleGeocoder.geocode(msg)
 		results =  EvacCenter.within(10, :origin=>msg)
-		response = "We recommend you to take shelter on these area:\n"
+		response = "We recommend you to take shelter on these areas: "
 
 		results.each do |res|
-			response += res.name + '\n'
+			response += res.name + "; "
 		end
 		response
 	end
