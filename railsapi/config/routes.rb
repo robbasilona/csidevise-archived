@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'chikka/receive' => 'chikka#receiveChikka'
+  
   resources :evac_centers
   resources :stocks
   resources :pins
