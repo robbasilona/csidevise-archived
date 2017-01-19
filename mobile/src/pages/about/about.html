@@ -8,6 +8,7 @@
   <ion-item>
     <ion-label>{{loc}}</ion-label>
   </ion-item>
+  
   <ion-fab middle right id="geoButton">
     <button ion-fab mini color="blue" (click)="goToCenter()">
       <ion-icon name="md-locate"></ion-icon>
@@ -15,6 +16,7 @@
   </ion-fab>
   <div #map1 id="map1"></div>
   <br>
+
   <ion-scroll zoom="false" scrollX="false" scrollY="true" style="height: 15rem" id="scroll">
     <ion-list>
       <ion-item *ngFor="let pin of pins" (click)="navigate(pin)">
