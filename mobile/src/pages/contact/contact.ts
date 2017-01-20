@@ -26,6 +26,8 @@ export class ContactPage {
       this.width = platform.width();
       this.height = platform.height();
     });
+    this.trend = 'occupancy';
+    this.trendChange();
   }
 
   trendChange(){

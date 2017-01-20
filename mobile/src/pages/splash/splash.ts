@@ -4,6 +4,8 @@ import { TabsPage } from '../tabs/tabs';
 import { SmsPage } from '../sms/sms';
 import { InfoPage } from '../info/info';
 
+import { InAppBrowser } from 'ionic-native';
+
 /*
   Generated class for the Splash page.
 
@@ -28,6 +30,11 @@ export class SplashPage {
 
   goToInfo(){
     this.navCtrl.push(InfoPage);
+  }
+
+  goToMsgr(){
+    let browser = new InAppBrowser('http://fb.com/msg/refugeo','_system');
+    browser.show();
   }
 
   ionViewDidLoad() {

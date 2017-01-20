@@ -23,7 +23,7 @@ export class AboutPage {
   lat: number;
   lon: number;
   pins: any;
-  icons = ['http://maps.google.com/mapfiles/ms/icons/red-dot.png', 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'];
+  icons = ['http://maps.google.com/mapfiles/ms/icons/red-dot.png', 'http://maps.google.com/mapfiles/ms/icons/green-dot.png', 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'];
 
   constructor(public navCtrl: NavController, public ds_api: DataService) {
     this.api = ds_api;
@@ -47,7 +47,7 @@ export class AboutPage {
     let latLng = new google.maps.LatLng(this.lat, this.lon);
     let mapOptions = {
       center: latLng,
-      zoom: 13,
+      zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true
     }

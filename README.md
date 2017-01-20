@@ -39,6 +39,7 @@ cd csidevise/mobile
 npm install
 ionic plugin add cordova-plugin-geolocation
 ionic plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="AIzaSyAnesP8EwTMBecjSmPBzeMp1hP3sG3IPgE" --variable API_KEY_FOR_IOS="AIzaSyAnesP8EwTMBecjSmPBzeMp1hP3sG3IPgE"
+ionic plugin add cordova-plugin-inappbrowser
 npm install @types/google-maps
 cordova telemetry on
 ionic serve
@@ -58,7 +59,7 @@ Google Maps API keys
 ```
 AIzaSyAnesP8EwTMBecjSmPBzeMp1hP3sG3IPgE
 AIzaSyDwCB5OuH2bl37BlHL9hyCWmN9tmobombo
-AIzaSyCX0aSEKjuihv_6GTOVQ4ZMpPX4I_XxMrY	
+AIzaSyCX0aSEKjuihv_6GTOVQ4ZMpPX4I_XxMrY
 ```
 Chikka API
 ```
