@@ -1,5 +1,6 @@
-# up-csi x DevCon-Devise
-Evacuation suggestor app
+# RefuGeo
+## up-csi x DevCon-Devise
+RefuGeo is an application that aims to help people manage their resources, promote effective people relocation by providing evacuation recommendations, and provide insights with regards to disaster preparedness and public safety.
 
 DevCon Devise 2016
 
@@ -47,13 +48,6 @@ ionic serve
 
 Might need to execute *npm install* to install other packages.
 
-### Dummy login accounts
-username:
-
-password:
-
-See *seeds.rb* for more details.
-
 ### Some API credentials
 Google Maps API keys
 ```
@@ -67,3 +61,17 @@ shortcode: 29290469148
 clientID: f3be0f5b7d2abc0ce6fc0dccf7ecc049272af5679fbf5a547429cbaddb0391ff
 secret: 757f94e11c41b07a8eb846c20ad1db7fcb98b07a57b85ebe7092c3e4c457f87b
 ```
+
+### Test Cases
+**Application Services: Resource Locator, Evacuation Recommender, Graphical Representation of Trends**
+Install necessary dependencies (see instructions above)
+
+*Messaging Services* (via Chikka Messenger API x Your Phone's Messaging App) - Evacuation Recommender
+Send your current location as message content and send message to 29290469148
+You can try the following: 'Krus na Ligas', 'University of the Philippines Diliman Palma Hall'
+
+*Facebook Messenger Services* (via Facebook Messenger Bot x Your FB Messenger app) - Evacuation Recommender
+Message RefuGeo via Facebook (https://facebook.com/refugeo) with your current location. 
+You can try the following: 'Marikina City', 'Miriam College'
+
+*Development Status*: Currently, only evacuations near UP Diliman have been encoded.
