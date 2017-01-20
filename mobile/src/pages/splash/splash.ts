@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams} from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { SmsPage } from '../sms/sms';
+import { InfoPage } from '../info/info';
 
 /*
   Generated class for the Splash page.
@@ -18,6 +20,14 @@ export class SplashPage {
 
   goTo(){
     this.navCtrl.push(TabsPage);
+  }
+
+  goToText(){
+    this.navCtrl.push(SmsPage);
+  }
+
+  goToInfo(){
+    this.navCtrl.push(InfoPage);
   }
 
   ionViewDidLoad() {

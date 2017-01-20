@@ -10,6 +10,8 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class DataService {
+  root: string = 'http://localhost:3000';
+  prod: string = 'https://mysterious-fjord-54773.herokuapp.com/';
 
   constructor(public http: Http) {
     console.log('Hello DataService Provider');
@@ -61,6 +63,17 @@ export class DataService {
       if (id) {
         url += '/' + id;
       }
+      this.http.get(url)
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        });
+    });
+  }
+
+  loadRankedCenters(lat, lon){
+    return new Promise(resolve => {
+      let url = 'http://localhost:3000/evac_centers/rank/' + lat + '/' + lon;
       this.http.get(url)
         .map(res => res.json())
         .subscribe(data => {

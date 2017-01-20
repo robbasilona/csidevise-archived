@@ -2,5 +2,14 @@ page-about {
   #map1{
     width: 100%;
     height: 60%;
+    z-index: 900;
   }
+  #geoButton {
+    z-index: 901;
+  }
+
+}
+
+#scroll > .scroll-content{
+  padding: 0 !important;
 }

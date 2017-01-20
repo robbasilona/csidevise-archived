@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { InfoPage } from '../pages/info/info';
 import { SplashPage } from '../pages/splash/splash';
+import { SmsPage } from '../pages/sms/sms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ChartModule } from 'angular2-highcharts';
 
@@ -18,7 +19,8 @@ import { ChartModule } from 'angular2-highcharts';
     HomePage,
     TabsPage,
     InfoPage,
-    SplashPage
+    SplashPage,
+    SmsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -33,7 +35,8 @@ import { ChartModule } from 'angular2-highcharts';
     HomePage,
     TabsPage,
     InfoPage,
-    SplashPage
+    SplashPage,
+    SmsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

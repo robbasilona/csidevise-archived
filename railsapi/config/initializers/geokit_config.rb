@@ -1,3 +1,7 @@
+# <<<<<<< HEAD
+# Geokit::Geocoders::provider_order=[:google]
+# Geokit::Geocoders::GoogleGeocoder.api_key = 'AIzaSyDwCB5OuH2bl37BlHL9hyCWmN9tmobombo'
+# =======
 # These defaults are used in Geokit::Mappable.distance_to and acts_as_mappable
 Geokit::default_units = :kms # others :kms, :nms, :meters
 Geokit::default_formula = :sphere
