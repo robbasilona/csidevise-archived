@@ -1,10 +1,15 @@
+include Geokit::Geocoders
+
 class EvacCentersController < ApplicationController
   before_action :set_evac_center, only: [:show, :update, :destroy]
 
   # GET /evac_centers
   # GET /evac_centers.json
   def index
-    @evac_centers = EvacCenter.all
+    # @location = MultiGeocoder.geocode(request.remote_ip)
+    @location = MultiGeocoder.geocode('202.92.132.253')
+    # @evac_centers = EvacCenter.all
+    @evac_centers = EvacCenter.rank(@location)
     render json: @evac_centers
   end
 

@@ -5,10 +5,11 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
+  <ion-item (click)="goToCenter()">
+    <ion-icon name="md-locate" item-left class="locateIcon"></ion-icon>
     <ion-label>{{loc}}</ion-label>
   </ion-item>
-  
+
   <ion-fab middle right id="geoButton">
     <button ion-fab mini color="blue" (click)="goToCenter()">
       <ion-icon name="md-locate"></ion-icon>
