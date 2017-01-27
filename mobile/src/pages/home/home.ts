@@ -42,7 +42,7 @@ export class HomePage {
       for (let supply of this.supplies) {
         supply.enabled = false;
       }
-      this.supplies[0].enabled = true;
+      // this.supplies[0].enabled = true;
       this.displayPins();
     });
   }
